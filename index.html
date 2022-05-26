@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>SAMURAI FIGHTER</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Press Start 2P', cursive;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+        }
+        
+        .text-container {
+            font-size: 0.7em !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            color: white;
+        }
+        
+        .text-container h3 {
+            margin-top: -15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="position: relative; display: inline-block;">
+
+        <div style="position: absolute; display: flex; align-items: center; width: 100%; padding: 20px;">
+
+            <div style="position: relative; height: 38px; width: 100%; display: flex; justify-content: flex-end; border: 4px solid white; border-right: none;">
+                <div style="background-color: red; height: 30px; width: 100%;"></div>
+                <div id="playerHealth" style="background-color:#818CF8; position: absolute; top: 0; right: 0; bottom: 0; width: 100%;"></div>
+            </div>
+
+            <div id="timer" style="border: 4px solid white; background-color: black; width: 100px; height: 50px; color: white; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">10</div>
+
+            <div style="position: relative; height: 38px; width: 100%; border: 4px solid white; border-left: none;">
+                <div style="background-color: red; height: 30px;"></div>
+                <div id="enemyHealth" style="background-color: #818CF8; position: absolute; top: 0; right: 0; bottom: 0; left: 0;"></div>
+            </div>
+        </div>
+        <div id="displayText" style="position: absolute;font-family: 'Press Start 2P', cursive; font-size: 2.6em; color:white; align-items: center; justify-content: center; top: 0; left: 0; bottom: 0; right: 0; font-size: 2em; display: none">Tie</div>
+        <canvas></canvas>
+    </div>
+    <div class="text-container">
+        <h1>SAMURAI FIGHTER</h1>
+        <br>
+        <h3>MADE BY TIIRTH</h3>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
