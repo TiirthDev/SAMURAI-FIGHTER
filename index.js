@@ -452,10 +452,14 @@ function animate() {
 
     //player movement
     player.velocity.x = 0;
-    if (keys.a.pressed && player.lastkey === "a") {
+    if (keys.a.pressed && player.lastkey === "a" && player.position.x > 0) {
         player.velocity.x = -5;
         player.switchSprite("run");
-    } else if (keys.d.pressed && player.lastkey === "d") {
+    } else if (
+        keys.d.pressed &&
+        player.lastkey === "d" &&
+        player.position.x < 1024 - player.width
+    ) {
         player.velocity.x = 5;
         player.switchSprite("run");
     } else {
@@ -470,10 +474,18 @@ function animate() {
 
     //enemy movement
     enemy.velocity.x = 0;
-    if (keys.ArrowLeft.pressed && enemy.lastkey === "ArrowLeft") {
+    if (
+        keys.ArrowLeft.pressed &&
+        enemy.lastkey === "ArrowLeft" &&
+        enemy.position.x > 0 - enemy.width
+    ) {
         enemy.velocity.x = -5;
         enemy.switchSprite("run");
-    } else if (keys.ArrowRight.pressed && enemy.lastkey === "ArrowRight") {
+    } else if (
+        keys.ArrowRight.pressed &&
+        enemy.lastkey === "ArrowRight" &&
+        enemy.position.x < 1024 - enemy.width
+    ) {
         enemy.velocity.x = 5;
         enemy.switchSprite("run");
     } else {
@@ -533,7 +545,7 @@ function animate() {
 animate();
 
 window.addEventListener("keydown", (event) => {
-    if (!player.dead) {
+    if (player.health > 0) {
         switch (event.key) {
             case "d":
                 keys.d.pressed = true;
@@ -552,7 +564,7 @@ window.addEventListener("keydown", (event) => {
         }
     }
     //enemy keys
-    if (!enemy.dead) {
+    if (enemy.health > 0) {
         switch (event.key) {
             case "ArrowRight":
                 keys.ArrowRight.pressed = true;
